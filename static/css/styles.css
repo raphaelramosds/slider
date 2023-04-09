@@ -1,0 +1,128 @@
+:root {
+	--full-w: 400%;
+	--post-w: 400px;
+	--post-h: 400px;
+	--primary: #5C7AFF;
+	--secondary: #59D2FE;
+	--circle-dim: 1.15em;
+}
+
+body {
+	background: linear-gradient(90deg, var(--primary), var(--secondary));
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+/* Slides */
+
+.feed {
+	margin: 0 auto;
+	max-width: var(--post-w);
+}
+
+.posts {
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.posts__slides {
+	display: flex;
+	width: var(--full-w);
+	overflow: hidden;
+}
+
+.slides__div {
+	width: 25%;
+	height: var(--post-h);
+	object-fit: cover;
+
+	background-color: #222;
+	color: lightgrey;
+
+	text-align: center;
+	text-transform: uppercase;
+	font-family: sans-serif;
+
+	transition: 1s;
+}
+
+.slides__div img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Hover Effect on slides */
+
+.posts {
+	position: relative;
+}
+
+.posts .posts__slides::before {
+	content: "";
+	width: 100%;
+	height: 200px;
+	z-index: 50;
+	position: absolute;
+	opacity: 0;
+	background: linear-gradient(180deg, #222, #22222200);
+	transition: all 1s;
+}
+
+.posts:hover .posts__slides:before {
+	opacity: 1;
+}
+
+/* Legenda com informações do post */
+
+.posts__caption {
+	position: absolute;
+	width: 100%;
+	transition: all 1s;
+	text-align: center;
+	transform: translateY(-100px);
+	z-index: 60;
+}
+
+.posts:hover .posts__caption {
+	transform: translateY(30px);
+}
+
+/* Navegação */
+
+.navigation {
+	margin-top: .5rem;
+}
+
+.navigation__form input {
+	opacity: 0;
+	position: absolute;
+}
+
+.navigation__form,
+.navigation__form input+label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navigation__form div {
+	margin-left: .5rem;
+}
+
+.navigation__form input+label::before {
+	content: "";
+	border: 1px solid #106876;
+	border-radius: 100%;
+	height: var(--circle-dim);
+	width: var(--circle-dim);
+}
+
+.navigation__form input:checked+label::after {
+	content: "";
+	width: calc(0.75 * var(--circle-dim));
+	height: calc(0.75 * var(--circle-dim));
+	background-color: #106876;
+	border-radius: 100%;
+	position: absolute;
+}
