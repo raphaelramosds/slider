@@ -1,5 +1,7 @@
 <h1 align="center"><b>🏞️ Slider</b></h1>
 
+![Imagem](./static/demo.gif)
+
 ## 🚀 Technologies
 
 This page was built with
